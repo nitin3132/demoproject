@@ -109,3 +109,17 @@ Now, enable firewall by passing following command.
 ufw enable
 ```
 That’s all. Now on, your Jenkins server will run behind the Apache’s Reverse Proxy.
+
+# 3. How to Configure Jenkins Behind NGINX Reverse Proxy?
+
+If you prefer NGINX over Apache, create an NGINX configuration similar to
+`jenkins-nginx.conf` in your NGINX sites directory. Replace `example.com` with
+your domain name and restart NGINX.
+
+```bash
+sudo ln -s /path/to/jenkins-nginx.conf /etc/nginx/sites-enabled/jenkins
+sudo systemctl restart nginx
+```
+
+After configuration, your Jenkins instance will be accessible through NGINX on
+port 80 while Jenkins continues to run on port 8080.
